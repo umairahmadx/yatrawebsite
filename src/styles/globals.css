@@ -1,0 +1,63 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    --bg-primary: #08090C;
+    --bg-secondary: #0C0E13;
+    --bg-card: #111319;
+    --gold: #E2A855;
+    --gold-hover: #F0B865;
+  }
+
+  * { @apply border-white/10; }
+
+  html { @apply scroll-smooth; }
+
+  body { @apply bg-bg-primary text-white font-body antialiased; }
+
+  ::selection { @apply bg-gold/30 text-white; }
+
+  ::-webkit-scrollbar { @apply w-1.5; }
+  ::-webkit-scrollbar-track { @apply bg-bg-primary; }
+  ::-webkit-scrollbar-thumb { @apply bg-gold/50 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-gold; }
+}
+
+@layer components {
+  .container-custom { @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12; }
+  .section-padding { @apply py-16 sm:py-20 lg:py-28 xl:py-32; }
+  .text-gradient-gold { @apply bg-gradient-to-r from-gold to-gold-hover bg-clip-text text-transparent; }
+  .spotlight-card { @apply relative overflow-hidden bg-bg-card border border-white/10 rounded-2xl transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]; }
+  .spotlight-card:hover { @apply border-gold/40 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)]; }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium font-mono2 tracking-widest uppercase text-white bg-gold rounded-full overflow-hidden transition-all duration-300 hover:bg-gold-hover hover:shadow-[0_0_30px_-5px_rgba(226,168,85,0.5)] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary;
+  }
+  .btn-primary span { @apply relative z-10; }
+
+  .btn-secondary {
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium font-mono2 tracking-widest uppercase text-white bg-transparent border border-white/20 rounded-full overflow-hidden transition-all duration-300 hover:border-gold hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary;
+  }
+  .btn-secondary span { @apply relative z-10; }
+
+  .btn-ghost { @apply inline-flex items-center gap-2 text-sm font-medium font-mono2 tracking-widest uppercase text-white/70 hover:text-gold transition-colors duration-300; }
+
+  .input-field { @apply w-full px-4 py-4 text-white bg-bg-secondary border border-white/10 rounded-xl font-body text-base placeholder:text-white/30 transition-all duration-300 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold focus:bg-bg-card; }
+  .input-label { @apply block text-xs font-mono2 tracking-widest uppercase text-white/50 mb-2; }
+
+  .image-zoom { @apply overflow-hidden; }
+  .image-zoom img { @apply transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-105; }
+  .card-hover-lift { @apply transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2; }
+}
+
+@layer utilities {
+  .text-outline { -webkit-text-stroke: 1px rgba(255,255,255,0.1); text-stroke: 1px rgba(255,255,255,0.1); }
+  .bg-hero-gradient { background: linear-gradient(to top, #08090C, rgba(8, 9, 12, 0.4), transparent); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
